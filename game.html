@@ -4,59 +4,52 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/game.css">
+
 	</head>
 	
 	<body>
 		<div class="page-body">
-			
+
+			<!-- game-body section -->
 			<div class="col-md-8">
 				<div class="game-body">
 					<h1>Tic Tac Toe</h1>
-
+					<!-- actual board -->
 					<div class="container">
 						<div id="board">
 							<div class="row">
-							<div class="col-xs-4 cell-design">
-							</div>
-							<div class="col-xs-4 cell-design">
-							</div>
-							<div class="col-xs-4 cell-design">
-							</div>
+								<div id="cell0" class="col-xs-4 cell-design"></div>
+								<div id="cell1" class="col-xs-4 cell-design"></div>
+								<div id="cell2" class="col-xs-4 cell-design"></div>
 							</div>
 
 							<div class="row">
-							<div class="col-xs-4 cell-design">
-							</div>
-							<div class="col-xs-4 cell-design">
-							</div>
-							<div class="col-xs-4 cell-design">
-							</div>
+								<div id="cell3" class="col-xs-4 cell-design"></div>
+								<div id="cell4" class="col-xs-4 cell-design"></div>
+								<div id="cell5" class="col-xs-4 cell-design"></div>
 							</div>
 
 							<div class="row">
-							<div class="col-xs-4 cell-design">
-							</div>
-							<div class="col-xs-4 cell-design">
-							</div>
-							<div class="col-xs-4 cell-design">
-							</div>
+								<div id="cell6" class="col-xs-4 cell-design"></div>
+								<div id="cell7" class="col-xs-4 cell-design"></div>
+								<div id="cell8" class="col-xs-4 cell-design"></div>
 							</div>
 						</div>
 					</div>
-
 				</div>
 			</div>
 
+
+			<!-- history section -->
 			<div class="col-md-4">
 				<div class="history-body">
 					<h3>Game History</h3>
 				</div>
 			</div>
 		
-		</div>
-		
+		</div> <!--- end of page-body -->
 
-
-		
+		<!-- game js file -->
+		<script src="js/game.js"></script>
 	</body>
 </html>
