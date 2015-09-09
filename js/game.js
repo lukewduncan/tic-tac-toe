@@ -28,14 +28,13 @@ $(function(){
 
     	if ($("#cell0").text() == $("#cell1").text()) {
 			if ($("#cell0").text() == $("#cell2").text()) {
-				console.log("hello")
+				alert("Game Over. Player " + $("#cell0").text() + " wins!")
 			}
-		};
+		}
+
 
 	};
 
 }); 
 
-// if ($("#cell0").text() == ("cell1").text()) {
-// 	console.log("this is working")
-// };
+
