@@ -1,0 +1,23 @@
+html, body {
+    height: 100%;
+}
+
+.game-body {
+	border-right: 5px solid #000;
+}
+
+.history-body {
+}
+
+.cell-design {
+	float: left;
+	width: 20%;
+	height: 175px;
+	border: 1px solid black;
+	text-align: center;
+}
+
+#board {
+	width: 100%;
+	padding-left: 5%;
+}
