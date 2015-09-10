@@ -1,61 +1,71 @@
-$(function(){
+$(function() {
 
-	var pieceX = "X";
-	var pieceO = "O";
+    var pieceX = "X";
+    var pieceO = "O";
+    var cellDefault = $(".cell-default");
 
-	// took concept from the ATM assignment
-	var switchTurn = 0;
+    var switchTurn = 0;
 
+    alert("Player 1 - make your move!")
 
-    // setting who's turn it is -- basing it off count 0. Even = pieceX, Odd = pieceO
-      $(".cell-design").click(function() { 
-	            if (switchTurn % 2 === 0){
-	              		$(this).text(pieceX);
-	            } else {
-	            	// if player move doesn't equal even number, then pieceO turn
-	              $(this).text(pieceO);
-	            }
-	        switchTurn++; 
-	        findWinner();
-      });
+    // Turn logic -- setting who's turn it is -- basing it off count 0 (ATM assignment). Even = pieceX, Odd = pieceO
+    $(cellDefault).click(function() {
+        switchTurn++;
+        if (switchTurn % 2 === 0) {
+            $(this).text(pieceX);
+        } else {
+            // if player move doesn't equal even number, then pieceO turn
+            $(this).text(pieceO);
+        }
+        console.log("switch turn testing");
 
-    // find the winnner -- function for searching winner for pieceX and pieceO
+        findWinner();
+    });
+
+    // find the winnner -- function for searching winner for pieceX or pieceO
     function findWinner() {
-    	//checks to see if x has won the game
 
-    	var cellzero = $("#cell0");
-    	var cellone = $("#cell1");
-    	var celltwo = $("#cell2");
-    	var cellthree = $("#cell3");
-    	var cellfour = $("#cell4");
-    	var cellfive = $("#cell5");
-    	var cellsix = $("#cell6");
-    	var cellseven = $("#cell7")
-    	var celleight = $("#cell8");
-    	var cellnine = $("cell9");
-
-    	var searchCell0 = $("#cell0").text() !== " ";
-
-    	if (searchCell0) {
-	    	if ($(cellzero).text() === $(cellone).text()) {
-				if ($(cellzero).text() === $(celltwo).text()) {
-					alert("Game Over. Player " + $(cellzero).text() + " wins!")
-				}
-			}
-			if ($(cellzero).text() === $(cellthree).text()) {
-				if ($(cellzero).text() === $(cellsix).text()) {
-					alert("Game Over. Player " + $(cellzero).text() + " wins!")
-				}
-			}
-			if ($(cellzero).text() === $(cellfour).text()) {
-				if ($(cellzero).text() === $(celleight).text()) {
-					alert("Game Over. Player " + $("cellzero").text() + " wins!")
-				}
-			}
-		} //end of first row (all possible combinations accounted for from cellzero)
-
-	}; // end of findWinner function
-
-}); 
+        var cellzero = $("#cell0");
+        var cellone = $("#cell1");
+        var celltwo = $("#cell2");
+        var cellthree = $("#cell3");
+        var cellfour = $("#cell4");
+        var cellfive = $("#cell5");
+        var cellsix = $("#cell6");
+        var cellseven = $("#cell7")
+        var celleight = $("#cell8");
+        var cellnine = $("cell9");
 
 
+        // first 3 solutions to win
+        var searchCell0 = $(cellzero).text() !== " ";
+
+        if (searchCell0) {
+            if ($(cellzero).text() === $(cellone).text()) {
+                if ($(cellzero).text() === $(celltwo).text()) {
+                    alert("Game Over. Player " + $(cellzero).text() + " wins!");
+                }
+            }
+            if ($(cellzero).text() === $(cellthree).text()) {
+                if ($(cellzero).text() === $(cellsix).text()) {
+                    alert("Game Over. Player " + $(cellzero).text() + " wins!");
+
+                }
+            }
+            if ($(cellzero).text() === $(cellfour).text()) {
+                if ($(cellzero).text() === $(celleight).text()) {
+                    alert("Game Over. Player " + $(cellzero).text() + " wins!");
+                }
+            }
+        } //end of first row (all possible combinations accounted for from cellzero)
+    }; // end of findWinner function
+
+    refreshGame();
+
+    function refreshGame() {
+        if ($(".cell-default").text() === pieceX || pieceO) {
+            $(".cell-default").text(" ");
+        }
+    };
+
+});

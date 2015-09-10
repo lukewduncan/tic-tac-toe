@@ -1,33 +1,58 @@
 html, body {
     height: 100%;
     font-family: 'Karla', sans-serif;
+    font-weight: 700;
+    background-color: #8ECFAA;
 }
 
-.history-body {
-	padding-bottom: 1000px;
-    margin-bottom: -1000px;
-    height: 100%;
+/* index.html*/
+
+body#background {
+  background-color: #8ECFAA;
+  background: url('../images/background.png');
+  letter-spacing: 1.5px;
 }
 
-.history-body h3 {
-	margin: 0;
-	padding-left: 10px;
-	padding-top: 10px;
+#background {
+	text-align: center;
+	color: #fff;
+	padding-top: 3%;
 }
 
-.cell-design {
-	float: left;
-	width: 25%;
+#background h1 {
+	font-size: 4em;
+	margin-top: 0;
+}
+
+.btn-play {
+	background-color: #F2DC5D;
+	color: #000;
+	font-size: 1.5em;
+	letter-spacing: 1.5px;
+	border-radius: 10px;
+}
+
+.how-it-works h1 {
+	font-size: 3em;
+}
+
+.how-it-works h4 {
+	text-align: left;
+}
+
+/* ganme.html*/
+
+.game-body {
+	color: #fff;
+	text-align: left;
+}
+
+.cell-default {
+	
 	height: 175px;
 	font-size: 100px;
-	border: 3px solid #f7f7f7;
+	background-color: #fff;
+	border: 10px solid #e0eaf6;
 	text-align: center;
-	margin: 0.5px;
-}
-
-#board {
-	width: 100%;
-	padding-left: 5%;
-	padding-top: 5%;
-	padding-bottom: 5%;
+	color: #000;
 }
