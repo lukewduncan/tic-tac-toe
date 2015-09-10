@@ -2,30 +2,40 @@ $(function() {
 
     var pieceX = "X";
     var pieceO = "O";
-    var cellDefault = $(".cell-default");
 
     var switchTurn = 0;
 
+    var boardArray
+
     // Turn logic -- setting who's turn it is -- basing it off count 0 (ATM assignment). Even = pieceX, Odd = pieceO
-    $(cellDefault).click(function() {
+    $(".cell-default").click(function() {
         switchTurn++;
-        if (switchTurn % 2 === 0) {
-            $(this).text(pieceX);
-        } else {
-            // if player move doesn't equal even number, then pieceO turn
-            $(this).text(pieceO);
-        }
+	        if (switchTurn % 2 === 0) {
+	        	$(this).text(pieceX);
+	        } else {
+	        	$(this).text(pieceO);
+	        }
         findTie();
         findWinner();
+
     });
+
+
+    // Stop click on used cell
+    // function stopClick () {
+    // 	if ($(".cell-default").text() === pieceX || pieceO) {
+    // 		alert("you can't do this");
+    // 		return;
+    // }
 
     // Tie function
     function findTie() {
     	if (switchTurn === 9) {
         	alert('You tied. Play again!');
+        	($(".history-display").html("<li>" + "It was a tie!" + "</li>"));
     		refreshGame();
     	}
-    }
+    };
 
     // Refresh Game after win, tie or loss
     function refreshGame() {
@@ -65,20 +75,20 @@ $(function() {
                     alert("Game Over. Player " + $(cellzero).text() + " wins!");
                     refreshGame();
                 }
-            }
+            };
             if ($(cellzero).text() === $(cellthree).text()) {
                 if ($(cellzero).text() === $(cellsix).text()) {
                     alert("Game Over. Player " + $(cellzero).text() + " wins!");
                     refreshGame();
                 }
-            }
+            };
             if ($(cellzero).text() === $(cellfour).text()) {
                 if ($(cellzero).text() === $(celleight).text()) {
                     alert("Game Over. Player " + $(cellzero).text() + " wins!");
                     refreshGame();
                 }
-            }
-        }
+            };
+        };
 
         // 2
         var searchCell2 = $(celltwo).text() !==" ";
@@ -89,13 +99,13 @@ $(function() {
                     alert("Game Over. Player " + $(celltwo).text() + " wins!");
                     refreshGame();
 	            }
-        	}
+        	};
         	if ($(celltwo).text() === $ (cellfour).text()){
         		if ($(celltwo).text() === $(cellsix).text()) {
                     alert("Game Over. Player " + $(celltwo).text() + " wins!");
                     refreshGame();
 	            }
-        	}
+        	};
         }
 
         // 3
@@ -119,8 +129,8 @@ $(function() {
                     alert("Game Over. Player " + $(cellthree).text() + " wins!");
                     refreshGame();
 	            }
-        	}
-        }
+        	};
+        };
 
         // 5
         var searchCell6 = $(cellsix).text() !==" ";
@@ -132,11 +142,9 @@ $(function() {
                     refreshGame();
 	            }
         	}
-        }
+        };
     }; // end of findWinner function
 
     refreshGame();
-
-
 
 }); // end of on.document load
