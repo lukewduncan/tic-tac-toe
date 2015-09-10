@@ -56,3 +56,13 @@ body#background {
 	text-align: center;
 	color: #000;
 }
+
+.alert
+{
+    font-size: 1.3em;
+    padding: 1em;
+    text-align: center;
+    white-space: nowrap;
+    width: auto;
+    word-wrap: normal;
+}

@@ -15,18 +15,24 @@ $(function() {
             // if player move doesn't equal even number, then pieceO turn
             $(this).text(pieceO);
         }
-
-        console.log("switch turn testing");
-
         findTie();
         findWinner();
     });
 
+    // Tie function
     function findTie() {
     	if (switchTurn === 9) {
+        	alert('You tied. Play again!');
     		refreshGame();
     	}
     }
+
+    // Refresh Game after win, tie or loss
+    function refreshGame() {
+        if ($(".cell-default").text() === pieceX || pieceO) {
+            $(".cell-default").text(" ");
+        }
+    };
 
     // find the winnner -- function for searching winner for pieceX or pieceO
     function findWinner() {
@@ -57,6 +63,7 @@ $(function() {
             if ($(cellzero).text() === $(cellone).text()) {
                 if ($(cellzero).text() === $(celltwo).text()) {
                     alert("Game Over. Player " + $(cellzero).text() + " wins!");
+                    refreshGame();
                 }
             }
             if ($(cellzero).text() === $(cellthree).text()) {
@@ -68,6 +75,7 @@ $(function() {
             if ($(cellzero).text() === $(cellfour).text()) {
                 if ($(cellzero).text() === $(celleight).text()) {
                     alert("Game Over. Player " + $(cellzero).text() + " wins!");
+                    refreshGame();
                 }
             }
         }
@@ -79,11 +87,13 @@ $(function() {
         	if ($(celltwo).text() === $ (cellfive).text()) {
         		if ($(celltwo).text() === $(celleight).text()) {
                     alert("Game Over. Player " + $(celltwo).text() + " wins!");
+                    refreshGame();
 	            }
         	}
         	if ($(celltwo).text() === $ (cellfour).text()){
         		if ($(celltwo).text() === $(cellsix).text()) {
                     alert("Game Over. Player " + $(celltwo).text() + " wins!");
+                    refreshGame();
 	            }
         	}
         }
@@ -95,6 +105,7 @@ $(function() {
         	if ($(cellone).text() === $ (cellfour).text()) {
         		if ($(cellone).text() === $(cellseven).text()) {
                     alert("Game Over. Player " + $(cellone).text() + " wins!");
+                    refreshGame();
 	            }
         	}
         }
@@ -104,8 +115,9 @@ $(function() {
 
         if (searchCell3) {
         	if ($(cellthree).text() === $ (cellfour).text()) {
-        		if ($(cellthree).text() === $(cellfour).text()) {
+        		if ($(cellthree).text() === $(cellfive).text()) {
                     alert("Game Over. Player " + $(cellthree).text() + " wins!");
+                    refreshGame();
 	            }
         	}
         }
@@ -117,6 +129,7 @@ $(function() {
         	if ($(cellsix).text() === $ (cellseven).text()) {
         		if ($(cellsix).text() === $(celleight).text()) {
                     alert("Game Over. Player " + $(cellsix).text() + " wins!");
+                    refreshGame();
 	            }
         	}
         }
@@ -124,10 +137,6 @@ $(function() {
 
     refreshGame();
 
-    function refreshGame() {
-        if ($(".cell-default").text() === pieceX || pieceO) {
-            $(".cell-default").text(" ");
-        }
-    };
+
 
 }); // end of on.document load
