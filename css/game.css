@@ -10,7 +10,7 @@ html, body {
 
 body#background {
   background-color: #8ECFAA;
-  background: url('../images/background.png');
+  background: url('../images/background.png') fixed;
   letter-spacing: 1.5px;
 }
 
@@ -68,12 +68,22 @@ body#background {
     word-wrap: normal;
 }
 
-.history-body {
+.below-body {
 	margin-top: 5%;
-	background: url('../images/background.png');
-
+	background: url('../images/background.png') fixed;
 }
+
+.score-display {
+	height: 50px;
+}
+
+
 
 .history-display {
 	height: 300px;
+}
+
+li {
+	font-size: 2em;
+	list-style: none;
 } 
