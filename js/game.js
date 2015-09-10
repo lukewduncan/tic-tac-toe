@@ -18,9 +18,15 @@ $(function() {
 
         console.log("switch turn testing");
 
-    
+        findTie();
         findWinner();
     });
+
+    function findTie() {
+    	if (switchTurn === 9) {
+    		refreshGame();
+    	}
+    }
 
     // find the winnner -- function for searching winner for pieceX or pieceO
     function findWinner() {
@@ -56,7 +62,7 @@ $(function() {
             if ($(cellzero).text() === $(cellthree).text()) {
                 if ($(cellzero).text() === $(cellsix).text()) {
                     alert("Game Over. Player " + $(cellzero).text() + " wins!");
-
+                    refreshGame();
                 }
             }
             if ($(cellzero).text() === $(cellfour).text()) {
