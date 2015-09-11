@@ -84,6 +84,10 @@ body#background {
 	height: 300px;
 }
 
+.score-counter {
+	margin-bottom: 10px;
+}
+
 li {
 	font-size: 2em;
 	list-style-position: center;
