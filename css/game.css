@@ -7,7 +7,6 @@ html, body {
 }
 
 /* index.html*/
-
 body#background {
   background-color: #8ECFAA;
   background: url('../images/background.png') fixed;
@@ -41,8 +40,13 @@ body#background {
 	text-align: left;
 }
 
-/* ganme.html*/
+small {
+	color: #fff;
+	text-dec
+}
 
+
+/* game.html*/
 .game-body {
 	color: #fff;
 	text-align: left;
@@ -86,6 +90,15 @@ body#background {
 
 .click-counter {
 	margin-bottom: 10px;
+}
+
+.refresh {
+	background-color: #F2DC5D;
+	color: #000;
+	letter-spacing: 1.5px;
+	border-radius: 10px;
+	border: none;
+	padding: 10px;
 }
 
 li {

@@ -32,8 +32,6 @@ $(function() {
         findTie();
     });
 
-
-
     // Function for showing alert before the start of every game
     function alertStart() {
         if (playerTurn === 1) {
@@ -62,6 +60,11 @@ $(function() {
             alertStart();
         }
     };
+
+    $(".refresh").click(function() {
+    	playerTurn = 1;
+    	refreshGame();
+    });
 
     // find the winnner -- function for searching winner for pieceX or pieceO
     function findWinner() {
