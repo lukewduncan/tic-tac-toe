@@ -30,17 +30,16 @@
 
 
     <script type="text/javascript" language="javascript">
-	$(document).ready(function()
-	{
+	$(function() {
 	$('.blink').each(function() {
     var elem = $(this);
-    setInterval(function() {
-        if (elem.css('visibility') == 'hidden') {
-            elem.css('visibility', 'visible');
-        } else {
-            elem.css('visibility', 'hidden');
-        }    
-    }, 700);
+	    setInterval(function() {
+	        if (elem.css('visibility') == 'hidden') {
+	            elem.css('visibility', 'visible');
+	        } else {
+	            elem.css('visibility', 'hidden');
+	        }    
+	    	}, 700);
 		}); 
 	}); 
 	</script>

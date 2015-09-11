@@ -6,16 +6,15 @@ $(function() {
     var switchTurn = 0;
     var playerTurn = 1;
 
-
-
     // Turn logic -- setting who's turn it is -- basing it off count 0 (ATM assignment). Even = pieceX, Odd = pieceO
     $(".cell-default").click(function() {
     	        switchTurn++;
 
         // denies a move into a cell if taken
         if ($(this).hasClass("deny")) {
-        	alert("I spent 8 hours trying to block your move. So you definitely aren't making this move!")
+        	alert("I spent 8 hours trying to block you from doing this. So you definitely aren't making this move!")
         	return;
+        	switchTurn--;
         }
 
 	        if (playerTurn === 1) {
@@ -27,19 +26,20 @@ $(function() {
 	        	$(this).addClass("deny");
 	        	playerTurn = 1;
 	        }
-        findTie();
-        findWinner();
+	    findWinner();
+        findTie();  
     });
 
 
-function alertStart () {
-	if (playerTurn === 1) {
-		alert("PLAYER 1, IT'S YOUR TURN FIRST!");
-	}
-	else {
-		alert("PLAYER 2, IT'S YOUR TURN FIRST!");
-	}
-};
+    // Function for showing alert before the start of every game
+	function alertStart () {
+		if (playerTurn === 1) {
+			alert("PLAYER 1, IT'S YOUR TURN FIRST! YOU ARE PIECE X");
+		}
+		else {
+			alert("PLAYER 2, IT'S YOUR TURN FIRST! YOU ARE piece O");
+		}
+	};
 
     // Tie function
     function findTie() {
@@ -63,7 +63,6 @@ function alertStart () {
 
     // find the winnner -- function for searching winner for pieceX or pieceO
     function findWinner() {
-
         var cellzero = $("#cell0");
         var cellone = $("#cell1");
         var celltwo = $("#cell2");
