@@ -13,10 +13,12 @@ $(function() {
         // denies a move into a cell if taken
         if ($(this).hasClass("deny")) {
             alert("I spent 8 hours trying to block you from doing this. So you definitely aren't making this move!")
-            return;
             switchTurn--;
+            return;
+            
         }
-        $('.score-count').html(function(i, val) {return val*1+1 });
+        // keeps track of the number of moves
+        $('.click-count').html(function(i, val) {return val*1+1 });
         if (playerTurn === 1) {
             $(this).text(pieceX);
             $(this).addClass("deny");
@@ -50,9 +52,6 @@ $(function() {
             switchTurn = 0;
         }
     };
-
-    $('.cell-default').click(function() {
-	});
 
     // Refresh Game after win, tie or loss
     function refreshGame() {

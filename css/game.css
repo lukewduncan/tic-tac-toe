@@ -84,11 +84,12 @@ body#background {
 	height: 300px;
 }
 
-.score-counter {
+.click-counter {
 	margin-bottom: 10px;
 }
 
 li {
-	font-size: 2em;
+	font-size: 1.5em;
 	list-style-position: center;
+	list-style: none;
 } 

@@ -13,10 +13,11 @@
     <div class="col-md-6 col-md-offset-1">
         <div class="game-body">
             <h1>Tic-Tac-Toe</h1>
-            <h4>Move Counter: <span class="score-count">0</span></h4>
+            <h4>Move Counter: <span class="click-count">0</span></h4>
 
             <!-- actual board -->
             <div class="container">
+            	<div class="col-md-8">
                 <div id="board text-center">
                     <div class="row">
                         <div id="cell0" class="col-xs-4 cell-default"></div>
@@ -34,20 +35,20 @@
                         <div id="cell8" class="col-xs-4 cell-default"></div>
                     </div>
                 </div>
+               	</div>
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-12 text-center">
-            <div class="below-body">
-                <div class="score-display">
-                </div>
-                <h1>Game History</h1>
-                <div class="history-display">
-                </div>
+    <div class="col-md-2 col-md-offset-2">
+    	<div class="below-body">
+	    	<div class="score-display">
+            </div>
+            <h1>Game History</h1>
+            <div class="history-display">
             </div>
         </div>
     </div>
+
     <!-- game js file -->
     <script src="js/game.js"></script>
 </body>
