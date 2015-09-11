@@ -4,8 +4,9 @@ $(function() {
     var pieceO = "O";
 
     var switchTurn = 0;
+    var playerTurn = 1;
 
-    alert("Ready to go? Player 1 your up!");
+
 
     // Turn logic -- setting who's turn it is -- basing it off count 0 (ATM assignment). Even = pieceX, Odd = pieceO
     $(".cell-default").click(function() {
@@ -17,17 +18,28 @@ $(function() {
         	return;
         }
 
-	        if (switchTurn % 2 === 0) {
+	        if (playerTurn === 1) {
 	        	$(this).text(pieceX);
 	        	$(this).addClass("deny");
-	        } else {
+	        	playerTurn = 2;
+	        } else if (playerTurn === 2) {
 	        	$(this).text(pieceO);
 	        	$(this).addClass("deny");
+	        	playerTurn = 1;
 	        }
         findTie();
         findWinner();
     });
 
+
+function alertStart () {
+	if (playerTurn === 1) {
+		alert("PLAYER 1, IT'S YOUR TURN FIRST!");
+	}
+	else {
+		alert("PLAYER 2, IT'S YOUR TURN FIRST!");
+	}
+};
 
     // Tie function
     function findTie() {
@@ -43,8 +55,9 @@ $(function() {
     function refreshGame() {
         if ($(".cell-default").text() === pieceX || pieceO) {
             $(".cell-default").text(" ");
-            switchTurn = 0;
             $(".cell-default").removeClass("deny");
+            switchTurn = 0;
+            alertStart();
         }
     };
 
