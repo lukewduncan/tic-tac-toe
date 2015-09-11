@@ -1,7 +1,7 @@
 # Tic-Tac-Toe
 
 Link
-- http://lukes-tictactoe.bitballoon.com/game
+- http://lukes-tictactoe.bitballoon.com/
 
 Technologies, languages and frameworks used:
 - HTML
