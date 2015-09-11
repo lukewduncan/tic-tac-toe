@@ -3,35 +3,36 @@ $(function() {
     var pieceX = "X";
     var pieceO = "O";
 
-    var score0 = 0;
-
     var switchTurn = 0;
+
+    alert("Ready to go? Player 1 your up!");
 
     // Turn logic -- setting who's turn it is -- basing it off count 0 (ATM assignment). Even = pieceX, Odd = pieceO
     $(".cell-default").click(function() {
-        switchTurn++;
+    	        switchTurn++;
+
+        // denies a move into a cell if taken
+        if ($(this).hasClass("deny")) {
+        	alert("I spent 8 hours trying to block your move. So you definitely aren't making this move!")
+        	return;
+        }
+
 	        if (switchTurn % 2 === 0) {
 	        	$(this).text(pieceX);
+	        	$(this).addClass("deny");
 	        } else {
 	        	$(this).text(pieceO);
+	        	$(this).addClass("deny");
 	        }
         findTie();
         findWinner();
-
     });
 
-
-    // Stop click on used cell
-    // function stopClick () {
-    // 	if ($(".cell-default").text() === pieceX || pieceO) {
-    // 		alert("you can't do this");
-    // 		return;
-    // }
 
     // Tie function
     function findTie() {
     	if (switchTurn === 9) {
-    		($(".history-display").html("<li>" + "It was a tie!" + "</li>"));
+    		($(".history-display").append("<li>" + "It was a tie!" + "</li>"));
         	alert('You tied. Play again!');
     		refreshGame();
     		switchTurn = 0;
@@ -43,6 +44,7 @@ $(function() {
         if ($(".cell-default").text() === pieceX || pieceO) {
             $(".cell-default").text(" ");
             switchTurn = 0;
+            $(".cell-default").removeClass("deny");
         }
     };
 
@@ -76,6 +78,7 @@ $(function() {
                 	($(".history-display").append("<li>" + cellzero.text() + " wins!</li>"));
                     alert("Game Over. Player " + $(cellzero).text() + " wins!");
                     refreshGame();
+                    return;
                 }
             }
             if ($(cellzero).text() === $(cellthree).text()) {
@@ -83,6 +86,7 @@ $(function() {
                 	($(".history-display").append("<li>" + cellzero.text() + " wins!</li>"));
                     alert("Game Over. Player " + $(cellzero).text() + " wins!");
                     refreshGame();
+                    return;
                 }
             }
             if ($(cellzero).text() === $(cellfour).text()) {
@@ -100,14 +104,14 @@ $(function() {
         if (searchCell2) {
         	if ($(celltwo).text() === $ (cellfive).text()) {
         		if ($(celltwo).text() === $(celleight).text()) {
-        			($(".history-display").append("<li>" + cellzero.text() + " wins!</li>"));
+        			($(".history-display").append("<li>" + celltwo.text() + " wins!</li>"));
                     alert("Game Over. Player " + $(celltwo).text() + " wins!");
                     refreshGame();
 	            }
         	}
         	if ($(celltwo).text() === $ (cellfour).text()){
         		if ($(celltwo).text() === $(cellsix).text()) {
-        			($(".history-display").append("<li>" + cellzero.text() + " wins!</li>"));
+        			($(".history-display").append("<li>" + celltwo.text() + " wins!</li>"));
                     alert("Game Over. Player " + $(celltwo).text() + " wins!");
                     refreshGame();
 	            }
@@ -120,7 +124,7 @@ $(function() {
         if (searchCell1) {
         	if ($(cellone).text() === $ (cellfour).text()) {
         		if ($(cellone).text() === $(cellseven).text()) {
-        			($(".history-display").append("<li>" + cellzero.text() + " wins!</li>"));
+        			($(".history-display").append("<li>" + cellone.text() + " wins!</li>"));
                     alert("Game Over. Player " + $(cellone).text() + " wins!");
                     refreshGame();
 	            }
@@ -133,7 +137,7 @@ $(function() {
         if (searchCell3) {
         	if ($(cellthree).text() === $ (cellfour).text()) {
         		if ($(cellthree).text() === $(cellfive).text()) {
-        			($(".history-display").append("<li>" + cellzero.text() + " wins!</li>"));
+        			($(".history-display").append("<li>" + cellthree.text() + " wins!</li>"));
                     alert("Game Over. Player " + $(cellthree).text() + " wins!");
                     refreshGame();
 	            }
@@ -146,7 +150,7 @@ $(function() {
         if (searchCell6) {
         	if ($(cellsix).text() === $ (cellseven).text()) {
         		if ($(cellsix).text() === $(celleight).text()) {
-        			($(".history-display").append("<li>" + cellzero.text() + " wins!</li>"));
+        			($(".history-display").append("<li>" + cellsix.text() + " wins!</li>"));
                     alert("Game Over. Player " + $(cellsix).text() + " wins!");
                     refreshGame();
 	            }

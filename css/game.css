@@ -49,17 +49,20 @@ body#background {
 }
 
 .cell-default {
-	
 	height: 175px;
 	font-size: 100px;
 	background-color: #fff;
 	border: 10px solid #e0eaf6;
 	text-align: center;
-	color: #000;
+	color: #34495e;
+	font-weight: 400;
 }
 
-.alert
-{
+.cell-default:hover {
+	background-color: #FFFAAE;
+}
+
+.alert {
     font-size: 1.3em;
     padding: 1em;
     text-align: center;
@@ -69,7 +72,7 @@ body#background {
 }
 
 .below-body {
-	margin-top: 5%;
+	margin-top: 0%;
 	background: url('../images/background.png') fixed;
 }
 
@@ -77,13 +80,11 @@ body#background {
 	height: 50px;
 }
 
-
-
 .history-display {
 	height: 300px;
 }
 
 li {
 	font-size: 2em;
-	list-style: none;
+	list-style-position: center;
 } 
